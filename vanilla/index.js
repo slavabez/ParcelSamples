@@ -6,8 +6,10 @@ import { dummyAction } from './src/DummyPromise';
   p.appendChild(textNode);
   document.body.appendChild(p);
 
-  dummyAction().then(result => {
+  dummyAction().then(async result => {
     alert(`Loaded: ${result.message}, `);
+    const inner = await dummyAction();
+    alert(inner.message);
   });
 
 })();
